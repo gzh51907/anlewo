@@ -1,3 +1,6 @@
+.home{
+    background-color: #f5f5f5;
+}
 header{
     box-sizing: border-box;
     height: 46px;
@@ -81,4 +84,83 @@ header .right>img:nth-child(1){
     margin: .16rem 0 0 0;
     font-size: .32rem;
     color: #444;
+}
+.alw-package{
+    padding: .4rem;
+    border-bottom: .12rem solid #f5f5f5;
+    background-color: #fff;
+}
+.alw-package .b-img{
+    float: left;
+    width: 4.5rem;
+    height: 4.98rem;
+    margin-bottom: 0;
+    margin-left: 0;
+    border-radius: .12rem;
+}
+.alw-package .s-img{
+    display: inline-block;
+    margin-left: .24rem;
+    margin-bottom: .24rem;
+    font-size: 0;
+    width: 4.44rem;
+    height: 2.35rem;
+    border-radius: .08rem;
+}
+.alw-collocation{
+    border-bottom: .532rem solid #f5f5f5;
+}
+.alw-collocation .title{
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    line-height: .3rem;
+    padding: .54rem .42rem;
+}
+.alw-collocation .title h3{
+    color: #000;
+    font-size: .58rem;
+    font-weight: bold;
+    line-height: .58rem;
+    margin-bottom: 0;
+}
+.alw-collocation .title p{
+    font-size: .34rem;
+    color: #ffb900;
+    line-height: .58rem;
+    margin-bottom: 0;
+}
+.alw-collocation .box{
+    padding: 0 0 .8rem .4rem;
+    background-color: #fff;
+}
+.alw-collocation .con{
+    width: 100%;
+}
+.alw-collocation .con div img{
+    width: 8rem;
+    border-radius: .16rem;
+}
+.alw-collocation .con div h5{
+    padding-top: .3rem;
+    line-height: 1.2;
+    font-size: .43rem;
+    font-weight: 500;
+    color: #333;
+    width: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+}
+.alw-collocation .con div p{
+    width: 3.2rem;
+    height: .44rem;
+    overflow: hidden;
+    color: #999;
+    font-size: .32rem;   
+}
+.footer{
+    width: 100%;
+    margin-bottom: .532rem;
 }
