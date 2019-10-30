@@ -1,12 +1,11 @@
 const express = require('express');
 const Router = express.Router();
 const { lastResult, token } = require('../utils');
-
 const goodsRouter = require('./goods');
 const usersRouter = require('./users');
 const cartRouter = require('./cart');
 const tourRouter = require('./tourinf');
-const creeperRouter = require('./creeper');
+// const creeperRouter = require('./creeper');
 
 Router.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
@@ -20,13 +19,14 @@ Router.use((req, res, next) => {
     }
 })
 
+
 Router.use(express.urlencoded({ extended: true }), express.json());//推导：内部自动调用next
 
 Router.use('/goods', goodsRouter);
 Router.use('/users', usersRouter);
 Router.use('/cart', cartRouter);
 Router.use('/addtour', tourRouter);
-Router.use('/creeper', creeperRouter);
+// Router.use('/creeper', creeperRouter);
 Router.get('/verify', (req, res) => {
     let Authorization = req.get('Authorization');
     let result = token.verify(Authorization);

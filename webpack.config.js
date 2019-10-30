@@ -8,7 +8,7 @@ module.exports = {
         filename: 'js/bundle-[name]-[hash:6].js'
     },
     devServer: {
-        contentBase: path.join(__dirname, './src')
+        contentBase: path.join(__dirname, './')
     },
     resolve: {
         alias: {
@@ -45,6 +45,13 @@ module.exports = {
         }, {
             test: /\.scss$/,
             use: ['style-loader', 'css-loader', 'sass-loader']
+        }, {
+            test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+            loader: 'url-loader',
+            options: {
+                limit: 10000,
+                name: '../dist/img/[name].[hash:6].[ext]'
+            }
         }]
     },
     //插件
