@@ -3,13 +3,11 @@ const Router = express.Router();
 const { mongo } = require('../db');
 const { lastResult } = require('../utils');
 
-Router.route('/guide')
+Router.route('/index')
     .get(async (req, res) => { //查
-        let { num, pages, sort, des } = req.query;
-        // console.log(num, pages, sort, des);
         let result = null;
         try {
-            result = await mongo.find('guide', pages, num, sort, des);
+            result = await mongo.find('index');
         } catch (err) {
             result = err;
         }

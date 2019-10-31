@@ -4,6 +4,7 @@ import Nav from "~/Nav";
 import Brand from "./Brand";
 import "./index.css";
 import { Badge, Carousel } from "antd";
+import axios from "axios";
 class Home extends Component {
     state = {
         banner: [],
@@ -13,14 +14,14 @@ class Home extends Component {
         match: []
     }
     async componentDidMount() {
-        let { data } = await api.get();
-        console.log(data);
+        let { data: { data } } = await axios.get('http://localhost:1907/goods/index');
+        // console.log(data);
         this.setState({
-            banner: data.banner,
-            navlist: data.nav,
-            packages: data.packages,
-            brand: data.brand,
-            match: data.match
+            banner: data[0].banner,
+            navlist: data[0].nav,
+            packages: data[0].packages,
+            brand: data[0].brand,
+            match: data[0].match
         })
     }
     render() {

@@ -5,34 +5,6 @@ import Cart from "~/Cart";
 import Tyg from "~/Tyg";
 import Mine from "~/Mine";
 class App extends Component {
-    state = {
-        menu: [{
-            name: 'home',
-            path: '/home',
-            text: '首页',
-            icon: 'home'
-        }, {
-            name: 'discover',
-            path: '/discover',
-            text: '发现',
-            icon: 'eye'
-        }, {
-            name: 'cart',
-            path: '/cart',
-            text: '购物车',
-            icon: 'shopping-cart'
-        }, {
-            name: 'reg',
-            path: '/reg',
-            text: '注册',
-            icon: 'user-add'
-        }, {
-            name: 'login',
-            path: '/login',
-            text: '登录',
-            icon: 'login'
-        }]
-    }
     render() {
         return (<div>
             <Switch>
