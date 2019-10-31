@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import api from "@/api";
+// import api from "@/api";
 import Nav from "~/Nav";
 import Brand from "./Brand";
 import "./index.css";
@@ -13,7 +13,29 @@ class Home extends Component {
         brand: [],
         match: []
     }
+    handleScroll = () => {
+        var scrollTop =
+            window.pageYOffset ||
+            document.documentElement.scrollTop ||
+            document.body.scrollTop;
+        if (scrollTop >= 100) {
+            this.refs.alhead.className = "changing";
+            if (scrollTop >= 200) {
+                this.refs.alhead.className = "active";
+                this.refs.mes.src = "../../../static/mes2.png";
+                this.refs.call.src = "../../../static/call2.png";
+            } else {
+                // console.log(this.refs.mes.src);
+                this.refs.alhead.className = "changing";
+                this.refs.mes.src = "../../../static/mes.png";
+                this.refs.call.src = "../../../static/call.png";
+            }
+        } else {
+            this.refs.alhead.className = "init";
+        }
+    }
     async componentDidMount() {
+        window.addEventListener("scroll", this.handleScroll);
         let { data: { data } } = await axios.get('http://localhost:1907/goods/index');
         // console.log(data);
         this.setState({
@@ -24,18 +46,21 @@ class Home extends Component {
             match: data[0].match
         })
     }
+    componentWillUnmount() {
+        window.removeEventListener("scroll", this.handleScroll);
+    }
     render() {
         let { banner, navlist, packages, brand, match } = this.state;
-        console.log(match);
+        // console.log(match);
         return <div className="home">
             <Nav></Nav>
-            <header>
-                <p>广州市<i></i></p>
+            <header ref="alhead" className="init">
+                <p className="city">广州市<i></i></p>
                 <div className="logo"></div>
                 <div className="right">
-                    <img src="../../../static/mes.png" />
+                    <img ref="mes" src="../../../static/mes.png" />
                     <Badge count={1}>
-                        <img src="../../../static/call.png" />
+                        <img ref="call" src="../../../static/call.png" />
                     </Badge>
                 </div>
             </header>

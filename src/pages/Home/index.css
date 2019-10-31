@@ -1,7 +1,7 @@
 .home{
     background-color: #f5f5f5;
 }
-header{
+.home header{
     box-sizing: border-box;
     height: 46px;
     width: 100%;
@@ -17,13 +17,22 @@ header{
     z-index: 999;
     background-image: linear-gradient(rgba(00,00,00,0.4) 10%, transparent 100%);
 }
-header p{   
+.home .changing {
+    background-color: rgba(245, 245, 245, 0.667);
+}
+.home .active {
+    background-image:linear-gradient(rgb(245, 245, 245) 100% ,transparent 0);
+}
+.home header p{   
     color: #fff;
     position: relative;
     margin-bottom: 0;
     font-size: 15px;
 }
-header p i {
+.home .active .city{
+    color: #444;
+}
+.home header p i {
     width: 0;
     height: 0;
     border: 5px solid transparent;
@@ -33,21 +42,27 @@ header p i {
     margin-top: -2.5px;
     margin-left: 5px;
 }
-header .logo{
+.home .active .city>i{
+    border-top-color: #444;
+}
+.home header .logo{
     width: 64px;
     height: 20px;
     background-image: url('../../../static/logo.png');
     background-size: 64px 20px;
     background-repeat: no-repeat;
 }
-header .right img{
+.home .active .logo{
+    background-image: url('../../../static/logo2.png');
+}
+.home header .right img{
     width: 22px;
     height: 22px;
 }
-header .right>img:nth-child(1){
+.home header .right>img:nth-child(1){
     margin-right: 14px;
 }
-.ant-badge-count{
+.home .ant-badge-count{
     height: 12px;
     line-height: 12px;
     min-width: 12px;
@@ -56,41 +71,41 @@ header .right>img:nth-child(1){
     right: 4px;
     top: 3px;
 }
-.ant-carousel .slick-dots li.slick-active button{
+.home .ant-carousel .slick-dots li.slick-active button{
     background-color: #ffca03;
     width: 16px;
 }
-.ant-carousel .slick-dots li button{
+.home .ant-carousel .slick-dots li button{
     width: 6px;
 }
-.alw-nav{
+.home .alw-nav{
     width: 100%;
     display: flex;
     height: 2rem;
     background-color: #fff;
 }
-.alw-nav div{
+.home .alw-nav div{
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-.alw-nav div img{
+.home .alw-nav div img{
     width: 30px;
     height: 30px;
 }
-.alw-nav div p{
+.home .alw-nav div p{
     margin: .16rem 0 0 0;
     font-size: .32rem;
     color: #444;
 }
-.alw-package{
+.home .alw-package{
     padding: .4rem;
     border-bottom: .12rem solid #f5f5f5;
     background-color: #fff;
 }
-.alw-package .b-img{
+.home .alw-package .b-img{
     float: left;
     width: 4.5rem;
     height: 4.98rem;
@@ -98,7 +113,7 @@ header .right>img:nth-child(1){
     margin-left: 0;
     border-radius: .12rem;
 }
-.alw-package .s-img{
+.home .alw-package .s-img{
     display: inline-block;
     margin-left: .24rem;
     margin-bottom: .24rem;
@@ -107,41 +122,41 @@ header .right>img:nth-child(1){
     height: 2.35rem;
     border-radius: .08rem;
 }
-.alw-collocation{
+.home .alw-collocation{
     border-bottom: .532rem solid #f5f5f5;
 }
-.alw-collocation .title{
+.home .alw-collocation .title{
     background-color: #fff;
     display: flex;
     justify-content: space-between;
     line-height: .3rem;
     padding: .54rem .42rem;
 }
-.alw-collocation .title h3{
+.home .alw-collocation .title h3{
     color: #000;
     font-size: .58rem;
     font-weight: bold;
     line-height: .58rem;
     margin-bottom: 0;
 }
-.alw-collocation .title p{
+.home .alw-collocation .title p{
     font-size: .34rem;
     color: #ffb900;
     line-height: .58rem;
     margin-bottom: 0;
 }
-.alw-collocation .box{
+.home .alw-collocation .box{
     padding: 0 0 .8rem .4rem;
     background-color: #fff;
 }
-.alw-collocation .con{
+.home .alw-collocation .con{
     width: 100%;
 }
-.alw-collocation .con div img{
+.home .alw-collocation .con div img{
     width: 8rem;
     border-radius: .16rem;
 }
-.alw-collocation .con div h5{
+.home .alw-collocation .con div h5{
     padding-top: .3rem;
     line-height: 1.2;
     font-size: .43rem;
@@ -153,14 +168,14 @@ header .right>img:nth-child(1){
     white-space: nowrap;
     word-wrap: normal;
 }
-.alw-collocation .con div p{
+.home .alw-collocation .con div p{
     width: 3.2rem;
     height: .44rem;
     overflow: hidden;
     color: #999;
     font-size: .32rem;   
 }
-.footer{
+.home .footer{
     width: 100%;
     margin-bottom: .532rem;
 }
