@@ -29,15 +29,34 @@ Router.route('/tyg')
 
 Router.route('/list')
     .get(async (req, res) => { //查
-        let { query } = req.query;
-        // console.log(num, page, query);
+        let { num, page, query } = req.query;
+        console.log(req.query);
         let result = null;
         try {
-            result = await mongo.dfind('listb', query);
+            result = await mongo.bfind('listb', page, num, { query });
         } catch (err) {
             result = err;
         }
         res.send(lastResult({ data: result }));
+    })
+
+Router.route('/')
+    .delete(async (req, res) => { //查
+        let { goodsId } = req.query;
+        console.log(req.query);
+        let result = null;
+        try {
+            result = await mongo.remove('listb', { goodsId });
+            if (result.result.n > 0) {
+                //删除成功
+                res.send(lastResult({}));
+            } else {
+                res.send(lastResult({ code: 0 }));
+            }
+        } catch (err) {
+            res.send(lastResult({ code: 0 }));
+            res.sendStatus(200);
+        }
     })
 
 

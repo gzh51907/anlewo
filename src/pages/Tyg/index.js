@@ -25,13 +25,13 @@ class Tyg extends Component {
             document.documentElement.scrollTop ||
             document.body.scrollTop;
         var offsetTop = this.refs.tygs.childNodes[this.refs.tygs.childNodes.length - 1].offsetTop;
-        // console.log(scrollTop + 350, offsetTop);
+        // console.log(scrollTop + 500, offsetTop);
         if (scrollTop >= 100) {
             this.refs.head.style = "font-size:0.48rem;";
         } else {
             this.refs.head.style = "font-size:0.6rem;";
         }
-        if (scrollTop + 350 >= offsetTop) {
+        if (scrollTop + 500 >= offsetTop) {
             clearTimeout(this.state.timer);
             this.setState({
                 timer: setTimeout(async () => {
