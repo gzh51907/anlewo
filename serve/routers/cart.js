@@ -5,11 +5,11 @@ const { lastResult } = require('../utils');
 
 Router.route('/')
     .get(async (req, res) => { //查
-        let { _id } = req.query;
+        let { gooosId } = req.query;
         let result = null;
         try {
-            if (_id) {
-                result = await mongo.dfind('cart', { _id });
+            if (gooosId) {
+                result = await mongo.dfind('cart', { gooosId });
             } else {
                 result = await mongo.dfind('cart');
             }
@@ -35,9 +35,9 @@ Router.route('/')
         }
     })
     .delete(async (req, res) => {
-        let { _id } = req.query;
-        console.log(_id)
-        let result = await mongo.remove('cart', { _id });
+        let { gooosId } = req.query;
+        // console.log(gooosId);
+        let result = await mongo.remove('cart', { gooosId });
         if (result.result.n > 0) {
             //删除成功
             res.send(lastResult({}));
@@ -46,8 +46,8 @@ Router.route('/')
         }
     })
     .patch(async (req, res) => {
-        let { _id, data } = req.body;
-        let result = await mongo.update('cart', { _id }, { data });
+        let { gooosId, data } = req.body;
+        let result = await mongo.update('cart', { gooosId }, { $set: { data } });
         if (result.ops.length) {
             //插入成功
             res.send(lastResult({}));

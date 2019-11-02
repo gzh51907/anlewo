@@ -10,7 +10,7 @@ let newname = '';
 // DiskStorage
 var storage = multer.diskStorage({
     // 上传文件保存目录，无则自动创建
-    destination: '../src/assets/imgs/',
+    destination: '../static/',
     // 设置上传目录(如果uploads目录不存在，则报错)
     // destination: function (req, file, cb) {
     //     cb(null, 'uploads/')
@@ -27,10 +27,10 @@ var storage = multer.diskStorage({
 var upload = multer({ storage });
 
 // 上传图片
-Router.post('/picture', upload.single('picture'), (req, res) => {
+Router.post('/picture', upload.single('tx'), (req, res) => {
     // upload.single()会对上传的图片进行处理，并设置到req.file属性中
     let data = {
-        imgurl: `../assets/imgs/${newname}`
+        imgurl: `../../../static/${newname}`
     }
     console.log(data);
     res.send(lastResult({ data }));

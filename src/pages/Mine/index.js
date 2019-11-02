@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Nav from "~/Nav";
 import "./Mine.scss";
 import { Button } from "antd";
+import axios from "axios";
 class Mine extends Component {
     state = {
         datalist1: [{
@@ -35,15 +36,30 @@ class Mine extends Component {
         localStorage.removeItem('user');
         this.props.history.push('/login');
     }
-    componentDidMount() {
+    changInfo = () => {
+        this.props.history.push('/info');
+    }
+    async componentDidMount() {
         this.refs.mine.style = `height:${window.innerHeight}px;`
+        let user = JSON.parse(localStorage.getItem('user'));
+        let { data: { data } } = await axios.get('http://localhost:1998/users/tx', {
+            params: {
+                phone: user.phone
+            }
+        });
+        // console.log(this.refs.headImg);
+        if (data[0].pic) {
+            this.refs.headImg.style = `background-image: url("${data[0].pic}");`;
+        } else {
+            this.refs.headImg.style = `background-image: url("../../../static/head-img.png");`;
+        }
     }
     render() {
         let { datalist1, datalist2 } = this.state;
         return (<div className="mine" ref="mine">
             <Nav></Nav>
             <header>
-                <div>
+                <div onClick={this.changInfo} ref='headImg'>
                     <img className="xg" src="../../../static/editor.png" />
                 </div>
             </header>

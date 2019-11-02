@@ -23,6 +23,20 @@ Router.get('/check', async (req, res) => {
     }
 })
 
+//查询用户名头像
+Router.get('/tx', async (req, res) => {
+    let { phone } = req.query;
+    // console.log(phone)
+    let result = await mongo.dfind('users', { phone });
+    if (result.length) {
+        //查询成功
+        res.send(lastResult({ data: result }));
+    } else {
+        // console.log(666)
+        res.send(lastResult({ code: 0 }));
+    }
+})
+
 //注册新用户
 Router.post('/reg', async (req, res) => {
     let { phone, pic, nickname } = req.body;
@@ -34,6 +48,20 @@ Router.post('/reg', async (req, res) => {
         res.send(lastResult({ code: 0 }));
     }
 
+})
+
+//修改头像
+Router.patch('', async (req, res) => {
+    let { phone, pic } = req.body;
+    // console.log(phone, pic);
+    let result = await mongo.update('users', { phone }, { $set: { pic } });
+    console.log(result.result);
+    if (result.result.n) {
+        //插入成功
+        res.send(lastResult({}));
+    } else {
+        res.send(lastResult({ code: 0 }));
+    }
 })
 
 //登录账号

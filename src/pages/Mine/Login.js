@@ -51,7 +51,7 @@ class Login extends Component {
         // console.log(reg.test(ev.target.value));
         let isOK = reg.test(ev.target.value);
         if (isOK) {
-            let { data } = await axios.get('http://localhost:1907/users/check', {
+            let { data } = await axios.get('http://localhost:1998/users/check', {
                 params: {
                     phone: ev.target.value
                 }
@@ -72,11 +72,11 @@ class Login extends Component {
             if (havephone) {
                 if (this.state.code == this.refs.verify.value) {
                     if (reg) {
-                        let { data: data1 } = await axios.post('http://localhost:1907/users/reg', {
+                        let { data: data1 } = await axios.post('http://localhost:1998/users/reg', {
                             phone
                         });
                         console.log(data1);
-                        let { data: { data: data2 } } = await axios.get("http://localhost:1907/users/login", {
+                        let { data: { data: data2 } } = await axios.get("http://localhost:1998/users/login", {
                             params: {
                                 phone
                             }
@@ -88,7 +88,7 @@ class Login extends Component {
                         }));
                         this.props.history.push('/mine');
                     } else {
-                        let { data: { data: data2 } } = await axios.get("http://localhost:1907/users/login", {
+                        let { data: { data: data2 } } = await axios.get("http://localhost:1998/users/login", {
                             params: {
                                 phone
                             }

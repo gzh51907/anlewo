@@ -37,11 +37,12 @@ async function remove(colName, _id) {
     return result;
 }
 
-async function update(colName, _id, newData) {
+async function update(colName, id, newData) {
+    console.log(id, newData);
     let { db, client } = await connect();
     //连接集合
     let col = db.collection(colName);
-    let result = await col.updateMany({ _id: ObjectId(_id) }, newData);
+    let result = await col.updateMany(id, newData);
     client.close();
     return result;
 }

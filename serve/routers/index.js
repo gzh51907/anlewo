@@ -25,7 +25,7 @@ Router.use(express.urlencoded({ extended: true }), express.json());//推导：�
 Router.use('/goods', goodsRouter);
 Router.use('/users', usersRouter);
 Router.use('/cart', cartRouter);
-Router.use('/addtour', tourRouter);
+Router.use('/change', tourRouter);
 Router.use('/creeper', creeperRouter);
 Router.get('/verify', (req, res) => {
     let Authorization = req.get('Authorization');

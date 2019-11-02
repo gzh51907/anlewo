@@ -16,6 +16,7 @@
     "antd": "^3.24.2",
     "jsonwebtoken": "^8.5.1",
     "lib-flexible": "^0.3.2",
+    "plupload": "^2.3.6",
     "postcss-px2rem-exclude": "0.0.6",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
