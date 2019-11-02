@@ -17,7 +17,7 @@ class Nav extends Component {
             active: '../../static/tyg.png'
         }, {
             name: '家装商城',
-            path: '/cart',
+            path: '/mall',
             imgurl: '../../static/shop-gray.png',
             active: '../../static/shop.png'
         }, {

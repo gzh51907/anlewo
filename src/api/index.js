@@ -1,13 +1,29 @@
 import axios from "axios";
 let ajax = axios.create({
-    baseURL: 'https://wap.woapi.net/v1/store?page=20&city=%E5%B9%BF%E5%B7%9E%E5%B8%82&per-page=9'
+    baseURL: 'https://wap.woapi.net/v1'
 })
-export async function get(params, config = {}) {
-    let { data } = await ajax.get('', {
+let alw = axios.create({
+    baseURL: 'http://10.3.133.73:1998'
+})
+export async function get(url = '', params, config = {}) {
+    let { data } = await ajax.get(url, {
         ...config,
         params
     });
     return data
+}
+
+export async function getalw(url = '', params, config = {}) {
+    let { data } = await alw.get(url, {
+        ...config,
+        params
+    });
+    return data
+}
+
+export async function postalw(url = '', params, config = {}) {
+    let { data } = await alw.post(url, params, config);
+    return data;
 }
 export async function post(params, config = {}) {
     let { data } = await ajax.post('', params, config);
@@ -15,5 +31,7 @@ export async function post(params, config = {}) {
 }
 export default {
     get,
-    post
+    post,
+    getalw,
+    postalw
 }

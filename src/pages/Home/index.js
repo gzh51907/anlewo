@@ -51,7 +51,6 @@ class Home extends Component {
     }
     render() {
         let { banner, navlist, packages, brand, match } = this.state;
-        // console.log(match);
         return <div className="home">
             <Nav></Nav>
             <header ref="alhead" className="init">
