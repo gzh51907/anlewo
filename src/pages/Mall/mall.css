@@ -1,0 +1,21 @@
+.mall {
+    margin: 0 .333333rem;
+    position: relative;
+    height: 100vh;
+}
+
+.mall>.shop-list {
+    position: absolute;
+    top: 46px;
+    bottom: 50px;
+    left: 0;
+    right: 0;
+    overflow-y: auto;
+    padding: .266667rem 0
+}
+
+.mall>.shop-list>.shop-list-item>.title {
+    padding: 8px 0px;
+    font-size: .426667rem;
+    font-weight: 800;
+}

@@ -13,8 +13,7 @@ class Home extends Component {
         match: []
     }
     async componentDidMount() {
-        let { data } = await api.get();
-        console.log(data);
+        let { data } = await api.get('home');
         this.setState({
             banner: data.banner,
             navlist: data.nav,
@@ -25,7 +24,6 @@ class Home extends Component {
     }
     render() {
         let { banner, navlist, packages, brand, match } = this.state;
-        console.log(match);
         return <div className="home">
             <Nav></Nav>
             <header>

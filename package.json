@@ -19,6 +19,7 @@
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-router-dom": "^5.1.2",
+    "redux-saga": "^1.1.1",
     "url-loader": "^2.2.0"
   },
   "devDependencies": {
