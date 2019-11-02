@@ -11,20 +11,22 @@ Router.get('/', async (req, res) => {
 
 //查询是否存在该用户名
 Router.get('/check', async (req, res) => {
-    let { age } = req.query;
-    let result = await mongo.dfind('users', { age: age * 1 });
+    let { phone } = req.query;
+    // console.log(phone)
+    let result = await mongo.dfind('users', { phone });
     if (result.length) {
         //查询成功
         res.send(lastResult({ code: 0 }));
     } else {
+        // console.log(666)
         res.send(lastResult({}));
     }
 })
 
 //注册新用户
 Router.post('/reg', async (req, res) => {
-    let { age, passs } = req.body;
-    let result = await mongo.create('users', [{ age, passs, regtime: Date.now() }]);
+    let { phone, pic, nickname } = req.body;
+    let result = await mongo.create('users', [{ phone, pic, nickname }]);
     if (result.ops.length) {
         //插入成功
         res.send(lastResult({}));
@@ -35,28 +37,18 @@ Router.post('/reg', async (req, res) => {
 })
 
 //登录账号
-Router.post('/login', async (req, res) => {
-    let { age, passs, mdl } = req.body;
-    let result = await mongo.dfind('users', { age: age - 0, passs });
-    if (result.length) {
-        //查询成功
-        let Authorization = '';
-        if (mdl == 1) {
-            Authorization = token.create(age);
-            res.send(lastResult({ data: Authorization }));
-        } else {
-            res.send(lastResult());
-        }
-    } else {
-        res.send(lastResult({ code: 0 }));
-    }
-
+Router.get('/login', async (req, res) => {
+    // console.log(777);
+    let { phone } = req.query;
+    let Authorization = '';
+    Authorization = token.create(phone);
+    res.send(lastResult({ data: Authorization }));
 })
 
 //删除账号
 Router.delete('/', async (req, res) => {
-    let { age } = req.body;
-    let result = await mongo.remove('users', { age });
+    let { phone } = req.body;
+    let result = await mongo.remove('users', { phone });
     if (result.result.n > 0) {
         //删除成功
         res.send(lastResult());

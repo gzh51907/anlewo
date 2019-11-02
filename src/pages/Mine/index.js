@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Nav from "~/Nav";
 import "./Mine.scss";
+import { Button } from "antd";
 class Mine extends Component {
     state = {
         datalist1: [{
@@ -30,9 +31,16 @@ class Mine extends Component {
             imgurl: '../../../static/list4.png'
         }]
     }
+    logout = () => {
+        localStorage.removeItem('user');
+        this.props.history.push('/login');
+    }
+    componentDidMount() {
+        this.refs.mine.style = `height:${window.innerHeight}px;`
+    }
     render() {
         let { datalist1, datalist2 } = this.state;
-        return (<div className="mine">
+        return (<div className="mine" ref="mine">
             <Nav></Nav>
             <header>
                 <div>
@@ -55,6 +63,7 @@ class Mine extends Component {
                     </li>)
                 }
             </ul>
+            <Button type="danger" size="large" onClick={this.logout}>退出</Button>
         </div>)
     }
 }

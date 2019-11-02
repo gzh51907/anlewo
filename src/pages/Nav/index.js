@@ -28,7 +28,15 @@ class Nav extends Component {
         }]
     }
     select = (path) => {
-        this.props.history.push(path);
+        if (path === '/mine') {
+            if (localStorage.getItem('user')) {
+                this.props.history.push('/mine');
+            } else {
+                this.props.history.push('/login');
+            }
+        } else {
+            this.props.history.push(path);
+        }
     }
     render() {
         let { navlist } = this.state;

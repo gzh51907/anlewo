@@ -59,11 +59,11 @@ async function bfind(colName, page, num, query = {}) {
 async function dfind(colName, query = {}) {
     let { db, client } = await connect();
     let col = db.collection(colName);
-    // console.log(colName, query);
+    console.log(colName, query);
 
     // 查询数据库
     let result = await col.find(query).toArray();
-
+    // console.log(result)
     // 关闭数据库连接
     client.close();
     //返回结果
