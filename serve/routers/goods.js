@@ -43,10 +43,10 @@ Router.route('/list')
 Router.route('/')
     .delete(async (req, res) => { //查
         let { goodsId } = req.query;
-        console.log(req.query);
+        // console.log(req.query);
         let result = null;
         try {
-            result = await mongo.remove('listb', { goodsId });
+            result = await mongo.remove('listb', { goodsId: goodsId - 0 });
             if (result.result.n > 0) {
                 //删除成功
                 res.send(lastResult({}));

@@ -5,11 +5,11 @@ const { lastResult } = require('../utils');
 
 Router.route('/')
     .get(async (req, res) => { //查
-        let { gooosId } = req.query;
+        let { gooodsId } = req.query;
         let result = null;
         try {
             if (gooosId) {
-                result = await mongo.dfind('cart', { gooosId });
+                result = await mongo.dfind('cart', { gooodsId });
             } else {
                 result = await mongo.dfind('cart');
             }

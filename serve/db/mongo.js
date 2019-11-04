@@ -32,7 +32,7 @@ async function remove(colName, query) {
     console.log(query);
     //连接集合
     let col = db.collection(colName);
-    let result = await col.deleteMany({ query });
+    let result = await col.deleteMany(query);
     client.close();
     return result;
 }

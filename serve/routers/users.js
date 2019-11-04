@@ -75,7 +75,7 @@ Router.get('/login', async (req, res) => {
 
 //删除账号
 Router.delete('/', async (req, res) => {
-    let { phone } = req.body;
+    let { phone } = req.query;
     let result = await mongo.remove('users', { phone });
     if (result.result.n > 0) {
         //删除成功
