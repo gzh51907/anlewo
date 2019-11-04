@@ -1,15 +1,14 @@
-import { ADD_CART, REMOVE_CART, CHANGE_QTY } from '../action/actionType'
-const defaultStore = {
-    cartlist:[]
-}
+/**
+ * redux模块化
+ * 合并多个reducer：影响到State的获取
+ */
 
-export default (state = defaultStore, {type,payload}) => {
-    switch(type){
-        case ADD_CART:
-            return{
-                ...state,
-                cartlist:[payload,...state.cartlist]
-            }
-    }
-    return state
-}
+import {combineReducers} from 'redux';
+
+import cartReducer from './cart';
+
+let rootReducer = combineReducers({
+   cart:cartReducer
+});
+
+export default rootReducer;

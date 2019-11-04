@@ -20,6 +20,8 @@ Router.route('/')
     })
     .post(async (req, res) => {
         let { query } = req.body;
+        console.log(query,'query');
+        
         let result = null;
         try {
             result = await mongo.create('cart', [query]);
