@@ -1,12 +1,34 @@
 import React, { Component } from 'react';
 import api from "@/api";
 import './detail.css'
-import { Icon, Button, InputNumber } from 'antd'
-import { ADD_CART } from '@/store/action/actionType'
-
+import { Icon, Button, InputNumber, Badge } from 'antd'
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import cartAction from '@/store/action/cartAction'
+import saga from '@/store/saga'
+// ES7语法
+const mapStateToProps = (state) => {
+    return {
+        carlength: state.cart.cartlist.length,
+        cartlist: state.cart.cartlist
+    }
+}
+// 默认自动传dispatch到props
+const mapDispatchToProps = (dispatch) => {
+    // return {
+    //     addCart(payload) {
+    //         // dispatch({ type: ADD_CART, payload })
+    //         dispatch(Action.cartAction.addToCartAction(payload))
+    //     },
+    //     changQty(payload) {
+    //         // dispatch({ type: CHANGE_QTY, payload })
+    //         dispatch(Action.cartAction.changeQtyAction(payload))
+    //     }
+    // }
+    return bindActionCreators(cartAction, dispatch)
 
-@connect()
+}
+@connect(mapStateToProps,mapDispatchToProps)
 class Detail extends Component {
     constructor(props) {
         super(props);
@@ -16,7 +38,7 @@ class Detail extends Component {
             packages: []
         }
     }
-    async componentDidMount() {
+    async componentDidMount() {  
         let { goodsId } = this.props.match.params;
         let { data } = await api.getalw('goods/detail', {
             goodsId
@@ -31,17 +53,27 @@ class Detail extends Component {
         history.go(-1);
     }
     add2Cart = (info, qty) => {
+        let { cartlist, addToCartAction, changeQtyAction } = this.props;
         let goods = {
+            goods_id: info.goodsId,
             goods_img: info.img,
             goods_name: info.goodsName,
             goods_price: info.price,
             goods_qty: qty,
             checked: true
         }
-        console.log(goods);
-        this.props.dispatch({ type: ADD_CART });//字节进入saga中间件
-        // // this.props.dispatch({type:'GET_DATA_ASYNC'});//字节进入saga中间件
+        // 判断商品是否存在cartlist
+        let currentCart = cartlist.filter(item => {
+            return item.goods_id === goods.goods_id
+        })[0]
+        // 存在
+        if (currentCart) {
+            changeQtyAction(goods.goods_id, goods.goods_qty)
+        } else {  //不存在
+            // this.props.dispatch({type:'ADD_CART_ASYNC',payload:goods});
+            addToCartAction(goods)
 
+        }
     }
     gotoCart = () => {
         let { history } = this.props;
@@ -53,6 +85,7 @@ class Detail extends Component {
         })
     }
     render() {
+        let { carlength } = this.props
         let { num, info, packages } = this.state;
         return (
             <div className="detail">
@@ -99,11 +132,22 @@ class Detail extends Component {
                 </div>
                 <div className="cartBtn">
                     <Button size="large" type="primary" style={{ verticalAlign: 'middle', paddingTop: 5 }} onClick={this.add2Cart.bind(this, info, num)}>加入购物车</Button>
-                    <Button size="large" type="danger" style={{ float: 'right', verticalAlign: 'middle', paddingTop: 5 }} onClick={this.gotoCart}>购物车</Button>
+                    <div style={{ float: 'right', verticalAlign: 'middle', paddingTop: 5 }}>
+                        <Badge count={carlength} style={{ backgroundColor: '#52c41a' }} >
+                            <Button size="large" type="danger" onClick={this.gotoCart}>购物车</Button>
+                        </Badge>
+                    </div>
+
                 </div>
             </div>
         );
     }
 }
 
+// const mapStateToProps = function (state) {
+//     return {
+//         carlength: state.cart.cartlist.length,
+//     }
+// }
+// Detail = connect(mapStateToProps)(Detail)
 export default Detail;

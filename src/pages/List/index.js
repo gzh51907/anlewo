@@ -13,7 +13,7 @@ class List extends Component {
         currentIndex: 0,
         flag: true,
     }
-    async componentDidMount() {
+    componentDidMount() {
         this.init();
     }
     init = () => {
