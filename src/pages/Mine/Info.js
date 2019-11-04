@@ -34,7 +34,7 @@ class Info extends Component {
     };
     handleUpload = async () => {
         let user = JSON.parse(localStorage.getItem('user'));
-        let { data } = await axios.patch('http://localhost:1998/users', {
+        let { data } = await axios.patch('http://47.98.245.185:1998/users', {
             phone: user.phone,
             pic: this.state.imgurl
         })
@@ -50,7 +50,7 @@ class Info extends Component {
         this.refs.info.style = `height:${window.innerHeight}px;`
         let user = JSON.parse(localStorage.getItem('user'));
         // console.log((user));
-        let { data: { data } } = await axios.get('http://localhost:1998/users/tx', {
+        let { data: { data } } = await axios.get('http://47.98.245.185:1998/users/tx', {
             params: {
                 phone: user.phone
             }
@@ -76,7 +76,7 @@ class Info extends Component {
             </header>
             <div className="upload">
                 <Upload
-                    action="http://localhost:1998/change/picture"
+                    action="http://47.98.245.185:1998/change/picture"
                     fileList={fileList}
                     onChange={this.handleChange}
                     name="tx"

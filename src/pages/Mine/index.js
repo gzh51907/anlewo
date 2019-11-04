@@ -42,7 +42,7 @@ class Mine extends Component {
     async componentDidMount() {
         this.refs.mine.style = `height:${window.innerHeight}px;`
         let user = JSON.parse(localStorage.getItem('user'));
-        let { data: { data } } = await axios.get('http://localhost:1998/users/tx', {
+        let { data: { data } } = await axios.get('http://47.98.245.185:1998/users/tx', {
             params: {
                 phone: user.phone
             }

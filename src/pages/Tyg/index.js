@@ -39,7 +39,7 @@ class Tyg extends Component {
                     this.setState({
                         page: page + 1
                     });
-                    let { data: { data: newdata } } = await axios.get('http://localhost:1998/goods/tyg', {
+                    let { data: { data: newdata } } = await axios.get('http://47.98.245.185:1998/goods/tyg', {
                         params: {
                             num: 9,
                             page: this.state.page
@@ -59,7 +59,7 @@ class Tyg extends Component {
     }
     async componentDidMount() {
         window.addEventListener("scroll", this.handleScroll);
-        let { data: { data: datas } } = await axios.get('http://localhost:1998/goods/tyg', {
+        let { data: { data: datas } } = await axios.get('http://47.98.245.185:1998/goods/tyg', {
             params: {
                 num: 9,
                 page: this.state.page

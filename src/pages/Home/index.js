@@ -36,7 +36,7 @@ class Home extends Component {
     }
     async componentDidMount() {
         window.addEventListener("scroll", this.handleScroll);
-        let { data: { data } } = await axios.get('http://localhost:1998/goods/index');
+        let { data: { data } } = await axios.get('http://47.98.245.185:1998/goods/index');
         // console.log(data);
         this.setState({
             banner: data[0].banner,
