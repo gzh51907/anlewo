@@ -1,0 +1,51 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack-dev-server",
+    "start": "npm run dev",
+    "build": "webpack"
+  },
+  "keywords": [],
+  "author": "avi",
+  "license": "ISC",
+  "dependencies": {
+    "antd": "^3.24.2",
+    "jsonwebtoken": "^8.5.1",
+    "lib-flexible": "^0.3.2",
+    "plupload": "^2.3.6",
+    "postcss-px2rem-exclude": "0.0.6",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0",
+    "react-router-dom": "^5.1.2",
+    "redux-saga": "^1.1.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/plugin-proposal-decorators": "^7.6.0",
+    "@babel/preset-react": "^7.6.3",
+    "axios": "^0.19.0",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-import": "^1.12.2",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^3.2.0",
+    "html-webpack-plugin": "^3.2.0",
+    "node-sass": "^4.13.0",
+    "postcss-flexbugs-fixes": "^4.1.0",
+    "postcss-loader": "^3.0.0",
+    "postcss-preset-env": "^6.7.0",
+    "react-redux": "^7.1.1",
+    "react-saga": "^0.3.1",
+    "redux": "^4.0.4",
+    "sass-loader": "^8.0.0",
+    "style-loader": "^1.0.0",
+    "url-loader": "^2.2.0",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.9.0"
+  }
+}

@@ -1,0 +1,46 @@
+.tyg{
+    width: 100%;
+    header{
+        width: 100%;
+        top: 0;
+        left: 0;
+        z-index: 666;
+        background-color: #fff;
+        color: #444;
+        padding: .4rem;
+        font-size: 0.6rem;
+        line-height: 0.6rem;
+        font-weight: 600;
+        position: fixed;
+    }
+    .tyg-con{
+        padding: 1.42rem .4rem;
+        background-color: #fff;
+        box-sizing: border-box;
+        .tyg-item{
+            border-bottom: 1px solid #ddd;
+            margin-top: .64rem;
+            img{
+                width: 100%;
+                height: 4rem;
+                border-radius: .16rem;
+            }
+            h3{
+                margin: .4rem 0 .28rem;
+                margin-right: .06rem;
+                font-size: .42rem;
+                color: #444;
+                line-height: .36rem;
+                font-weight: 600;
+                vertical-align: middle;
+            }
+            p{
+                font-size: .36rem;
+                color: #999;
+                line-height: .48rem;
+                margin-bottom: 0;
+                padding-bottom: .42rem;
+            }
+        }
+    }
+}

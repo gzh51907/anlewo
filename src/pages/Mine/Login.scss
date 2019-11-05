@@ -1,0 +1,79 @@
+.login{
+    padding: 0 .4rem;
+    h2{
+        height: 46px;
+        line-height: 46px;
+        background-color: #fff;
+        font-size: 22px;
+    }
+    .l-head{
+        padding: .4rem 0 .8rem;
+        line-height: .6rem;
+        h3{
+            font-size: .66rem;
+            line-height: .8rem;
+            font-weight: 600;
+            color: #222;
+            margin-bottom: 0;
+        }
+        h4{
+            font-size: .36rem;
+            line-height: .8rem;
+            color: #999;
+            margin-bottom: 0;
+        }
+    }
+    .l-form{
+        .inputbox{
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 19px;
+            p,label{
+                margin-bottom: 0;
+                font-size: 14px;
+                line-height: 15px;
+                color: #222;
+                font-weight: 600;
+            }
+            input{
+                width: 100%;
+                padding: 10px 30px 5px 0;
+                border: 0;
+                font-size: 14px;
+                color: #222;
+            }
+            >div{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+        }
+    }
+    >.ant-btn-lg{
+        height: 45px;
+        line-height: 43px;
+        width: 100%;
+        margin-top: 40px;
+        border-radius: 0;
+        font-size: 14px;
+        border-radius: 4px;
+        background-color: rgba(255,185,0,.5);
+        color: #fff;
+    }
+    .l-foot{
+        display: flex;
+        align-items: center;
+        margin-top: .72rem;
+        margin-bottom: .72rem;
+        span{
+            font-size: .4rem;
+            color: #999;
+            margin-right: 1.02rem;
+        }
+        >i{
+            font-size: 24px;
+            color: #333;
+            margin: 0 .8rem;
+            color: rgb(255,185,0);
+        }
+    }
+}

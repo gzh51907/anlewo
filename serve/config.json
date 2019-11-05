@@ -1,0 +1,6 @@
+{
+    "PROT": 1998,
+    "DBurl": "mongodb://47.98.245.185:27017",
+    "DBname": "alw",
+    "secret": "avi"
+}
