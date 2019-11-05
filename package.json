@@ -21,8 +21,7 @@
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-router-dom": "^5.1.2",
-    "redux-saga": "^1.1.1",
-    "url-loader": "^2.2.0"
+    "redux-saga": "^1.1.1"
   },
   "devDependencies": {
     "@babel/core": "^7.6.4",
@@ -44,6 +43,7 @@
     "redux": "^4.0.4",
     "sass-loader": "^8.0.0",
     "style-loader": "^1.0.0",
+    "url-loader": "^2.2.0",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.9",
     "webpack-dev-server": "^3.9.0"
