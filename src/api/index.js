@@ -30,6 +30,7 @@ export async function post(params, config = {}) {
     let { data } = await ajax.post('', params, config);
     return data;
 }
+
 export default {
     get,
     post,

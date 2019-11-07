@@ -28,6 +28,7 @@ module.exports = {
                 options: {
                     presets: ['@babel/preset-react'],
                     plugins: [
+                        "@babel/plugin-syntax-dynamic-import",
                         ["@babel/plugin-proposal-decorators", { legacy: true }],
                         ["babel-plugin-import", {
                             "libraryName": "antd",

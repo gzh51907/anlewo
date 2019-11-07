@@ -1,6 +1,6 @@
 import React from 'react';
 import { Icon, Row, Col } from 'antd'
-function MallNav() {
+function Mallnav() {
     return (
         <div className="mall-nav" style={{ height: 46 }}>
             <Row type="flex" justify="space-between" style={{lineHeight:'46px'}}>
@@ -15,4 +15,4 @@ function MallNav() {
     )
 }
 
-export default MallNav
+export default Mallnav

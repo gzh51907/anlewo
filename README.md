@@ -44,27 +44,27 @@
 
 ##### 首页：
 
-![project1](project1.png)
+![project1](./project1.png)
 
 ##### 体验馆页(被403禁用的图片替换成了IG夺冠阵容)：
 
-![project2](project2.png)
+##### ![project2](./project2.png)
 
 ##### 我的：
 
-![project4](project4.png)![project5](project5.png)![project6](project6.png)
+![project4](./project4.png)![project5](./project5.png)![project6](./project6.png)
 
 ##### 家装商城：
 
-![project3](./project3.png)![project7](project7.png)
+![project3](./project3.png)![project7](./project7.png)
 
 ##### 详情页：
 
-![project8](project8.png)
+![project8](./project8.png)
 
 ##### 购物车页：
 
-![project9](project9.png)
+![project9](./project9.png)
 
 ### 项目目录：
 

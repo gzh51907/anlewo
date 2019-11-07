@@ -3,7 +3,7 @@ import { Row, Col } from 'antd';
 import './mall.css'
 import api from "@/api";
 import Nav from "~/Nav";
-import MallNav from './MallNav'
+import Mallnav from './Mallnav'
 function Mall(props) {
     const [shopData, setShopData] = useState([])
     useEffect(() => {
@@ -21,7 +21,7 @@ function Mall(props) {
     }
     return (
         <div className="mall">
-            <MallNav />
+            <Mallnav />
             <Nav />
             <div className="shop-list">
                 {
